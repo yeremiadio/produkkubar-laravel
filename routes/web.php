@@ -27,7 +27,12 @@ Route::middleware(['auth'])->group(function () {
         return view('pages.admin.users.index');
     })->name('users');
 
-    Route::get('/users', [UserController::class, 'index'])->name('users');
+    Route::prefix('users')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('users');
+        Route::post('/create', [UserController::class, 'store'])->name('create-user');
+    });
+
+
 });
 
 // Route::get('/dashboard', function () {

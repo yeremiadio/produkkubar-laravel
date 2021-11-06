@@ -14,8 +14,25 @@ class UserController extends Controller
     {
         return view('pages.admin.users.index');
     }
+
     public function store(Request $request)
     {
-        $input = $request->all();
+        $this->validate(
+            $request,
+            [
+                'name' => 'required',
+                'email' => 'required|unique:users|email',
+                'password' => 'required|between:8,255|confirmed',
+            ]
+        );
+
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+
+        return redirect('users')->with('success', 'User created successfully');
     }
 }

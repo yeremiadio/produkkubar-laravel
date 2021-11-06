@@ -16,26 +16,17 @@
         <!-- A basic modal dialog with title, body and one button to close -->
         <div class="w-full h-auto p-4 mx-2 text-left bg-white rounded shadow-xl sm:max-w-xl md:p-6 lg:p-8 md:mx-0"
             @click.away="openModal = false">
-            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">
+            <div class="mt-3 sm:mt-0 sm:ml-4 sm:text-left">
+                <h3 class="text-lg font-medium leading-6 text-center text-gray-900">
                     {{ $title }}
                 </h3>
 
                 <div class="mt-2">
-                    {{ $desc }}
+                    {{ $content }}
                 </div>
             </div>
-
-            <!-- One big close button.  --->
-            <div class="mt-5 sm:mt-6">
-                <span class="flex w-full rounded-md shadow-sm">
-                    <button @click="openModal = false"
-                        class="inline-flex justify-center w-full max-w-full px-4 py-2 text-white bg-blue-500 rounded sm:max-w-max hover:bg-blue-700">
-                        Close this modal!
-                    </button>
-                </span>
-            </div>
-
         </div>
+
     </div>
+</div>
 </div>
